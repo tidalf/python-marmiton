@@ -23,7 +23,7 @@ class Marmiton(object):
 		'rct': 0 | 1  (without cook: 1)
 		'sort': "markdesc" (rate) | "popularitydesc" (popularity) | "" (empty for relevance)
 		"""
-		base_url = "http://www.marmiton.org/recettes/recherche.aspx?"
+		base_url = "https://www.marmiton.org/recettes/recherche.aspx?"
 		query_url = urllib.parse.urlencode(query_dict)
 
 		url = base_url + query_url
@@ -33,7 +33,7 @@ class Marmiton(object):
 
 		search_data = []
                 
-		articles = soup.findAll("a", {"class": "recipe-card"})
+		articles = soup.findAll("a", {"class": "recipe-card-link"})
 
 		iterarticles = iter(articles)
 		for article in iterarticles:
